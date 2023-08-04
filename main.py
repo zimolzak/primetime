@@ -46,10 +46,6 @@ def prime_factors(n):
     return factors
 
 
-def npf(n):
-    return len(prime_factors(n))
-
-
 current_time = TimeInt()
 x = []
 y = []
