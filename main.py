@@ -1,5 +1,8 @@
 # https://xkcd.com/247/
 
+import matplotlib.pyplot as plt
+
+
 class TimeInt:
     def __init__(self):
         self.n = 100
@@ -48,14 +51,19 @@ def npf(n):
 
 
 current_time = TimeInt()
-ordered_pairs = []
+x = []
+y = []
 for i in range(60 * 24):
     na = current_time.n
     nb = current_time.n12
     a = prime_factors(na)
     b = prime_factors(nb)
     if len(a) == len(b) and na != nb:
-        ordered_pairs.append([na, nb])
+        x.append(current_time.minute)
+        y.append(current_time.hour12)
         print(na, nb, a, b)
     current_time.increment()
 
+fig, ax = plt.subplots()
+ax.scatter(x, y)
+plt.show()
