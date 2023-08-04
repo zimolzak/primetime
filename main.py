@@ -28,7 +28,34 @@ class TimeInt:
         self.n12 = self.hour12 * 100 + self.minute
 
 
+def prime_factors(n):
+    # https://stackoverflow.com/questions/15347174/python-finding-prime-factors
+    i = 2
+    factors = []
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            factors.append(i)
+    if n > 1:
+        factors.append(n)
+    return factors
+
+
+def npf(n):
+    return len(prime_factors(n))
+
+
 current_time = TimeInt()
+ordered_pairs = []
 for i in range(60 * 24):
-    print(current_time.n, current_time.n12)
+    na = current_time.n
+    nb = current_time.n12
+    a = prime_factors(na)
+    b = prime_factors(nb)
+    if len(a) == len(b) and na != nb:
+        ordered_pairs.append([na, nb])
+        print(na, nb, a, b)
     current_time.increment()
+
