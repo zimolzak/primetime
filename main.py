@@ -1,3 +1,5 @@
+# https://xkcd.com/247/
+
 class TimeInt:
     def __init__(self):
         self.n = 100
@@ -13,18 +15,7 @@ class TimeInt:
         self.n = self.hour * 100 + self.minute
 
 
-def time_int():
-    n = 99
-    hour = (n + 1) // 100
-    minute = n + 1 - hour * 100
-    if minute == 60:
-        minute = 0
-        hour += 1
-    yield hour * 100 + minute
-
-
 current_time = TimeInt()
 for i in range(100):
     print(current_time.n)
     current_time.increment()
-
