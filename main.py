@@ -64,6 +64,13 @@ for i in range(60 * 24):
         print(na, nb, a, b)
     current_time.increment()
 
+print()
+print(len(x))
+print(60 * 24)
+print(len(x) / 60 / 24)
+
 fig, ax = plt.subplots()
 ax.scatter(x, y)
+ax.set_xlabel('Minute')
+ax.set_ylabel('Hour (p.m.)')
 plt.show()
